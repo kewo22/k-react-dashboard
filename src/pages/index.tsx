@@ -1,7 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import ReBarChart from '../components/recharts-components/ReBarChart'
+import DefaultLayout from '../layouts/Default'
+import styles from '../../styles/Home.module.css'
+import ReChartJs2 from './chartjs2'
 import Recharts from './recharts'
 // import "bulma/css/bulma.min.css";
 
@@ -14,7 +17,15 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <Recharts></Recharts> */}
+
+      <DefaultLayout title=''>
+
+        <div className={styles.wrapper}>
+          <Recharts />
+          <ReChartJs2 />
+        </div>
+
+      </DefaultLayout>
 
     </div>
   )
