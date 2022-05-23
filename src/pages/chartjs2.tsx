@@ -53,7 +53,8 @@ export default function ReChartJs2() {
         ],
     };
 
-    const options: ChartOptions = {
+    // ChartOptions
+    const options: any = {
         responsive: true,
         maintainAspectRatio: false,
         indexAxis: 'y' as const,
