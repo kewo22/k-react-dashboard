@@ -56,7 +56,7 @@ export default function FloatingChart() {
   };
 
   // ChartOptions
-  const options: ChartOptions = {
+  const options: any = {
     responsive: true,
     maintainAspectRatio: false,
     indexAxis: 'y' as const,
