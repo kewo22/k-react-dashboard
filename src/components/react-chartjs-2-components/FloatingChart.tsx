@@ -9,6 +9,9 @@ import {
   Tooltip,
   Legend,
   ChartOptions,
+  ChartEvent,
+  LegendElement,
+  LegendItem,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
@@ -33,7 +36,7 @@ export default function FloatingChart() {
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
+        label: 'Time (s)',
         data: [
           [0, 100],
           [100, 170],
@@ -53,7 +56,7 @@ export default function FloatingChart() {
   };
 
   // ChartOptions
-  const options: any = {
+  const options: ChartOptions = {
     responsive: true,
     maintainAspectRatio: false,
     indexAxis: 'y' as const,
@@ -66,8 +69,25 @@ export default function FloatingChart() {
     },
     plugins: {
       legend: {
-        display: false,
-        // position: 'bottom' as const,
+        display: true,
+        position: 'bottom' as const,
+        // title: {
+        //   display: true,
+        //   text: "Time (s)",
+        // font: {
+        //   size: 10
+        // }
+        // },
+        labels: {
+          boxWidth: 0,
+          font: {
+            size: 10
+          },
+        },
+        onClick: function (e: any) {
+          e.native?.preventDefault();
+          e.native?.stopPropagation();
+        }
       },
       title: {
         // display: true,
