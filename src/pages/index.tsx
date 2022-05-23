@@ -18,14 +18,19 @@ const Home: NextPage = () => {
       </Head>
 
 
-      <DefaultLayout title=''>
+      {/* <DefaultLayout title=''> */}
 
-        <div className={styles.wrapper}>
+      <div className="columns">
+        <div className="column">
           <Recharts />
+        </div>
+        <div className="column">
           <ReChartJs2 />
         </div>
+      </div>
 
-      </DefaultLayout>
+
+      {/* </DefaultLayout> */}
 
     </div>
   )
