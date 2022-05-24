@@ -1,5 +1,7 @@
 import React from 'react'
 import ReBarChart from '../components/recharts-components/ReBarChart';
+import ReDonutChart from '../components/recharts-components/ReDonutChart';
+import ReSimpleBarChart from '../components/recharts-components/ReSimpleBarChart';
 import DefaultLayout from '../layouts/Default';
 
 
@@ -7,8 +9,22 @@ export default function Recharts() {
 
     return (
         <DefaultLayout title='Recharts'>
-            <ReBarChart />
-            {/* // <ReDonutChart /> */}
+
+            <div className="box">
+                <h1 className="subtitle">{'Range Chart'}</h1>
+                <ReBarChart />
+            </div>
+
+            <div className="box">
+                <h1 className="subtitle">{'Doughnut Chart'}</h1>
+                <ReDonutChart />
+            </div>
+
+            <div className="box">
+                <h1 className="subtitle">{'Bar Chart'}</h1>
+                <ReSimpleBarChart />
+            </div>
+
         </DefaultLayout>
     )
 }

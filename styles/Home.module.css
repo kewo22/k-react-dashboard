@@ -1,3 +1,8 @@
+.appWrapper {
+	height: 100vh;
+	overflow: auto;
+}
+
 .wrapper {
 	display: flex;
 	flex-direction: row;
@@ -18,10 +23,31 @@
 	z-index: 999;
 	position: absolute;
 	left: -5px;
-	top: 11px;
+	top: 3.4px;
 }
 
 .customTooltip * {
 	color: white;
 	font-size: 10px;
+}
+
+.customPieLegendWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+}
+
+.customPieLegendWrapper * {
+	color: #474852;
+	font-size: 14px;
+}
+
+.customPieLegendBox {
+	height: 16px;
+	width: 16px;
+	border-radius: 4px;
+}
+
+.customLabelReSimpleBarChart {
+	color: red;
 }

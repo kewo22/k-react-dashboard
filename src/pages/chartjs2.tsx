@@ -8,7 +8,10 @@ export default function ReChartJs2() {
 
         <DefaultLayout title='React-Chartjs-2'>
 
-            <FloatingChart></FloatingChart>
+            {/* <div className="box"> */}
+                <FloatingChart></FloatingChart>
+            {/* </div> */}
+
 
         </DefaultLayout>
     )
