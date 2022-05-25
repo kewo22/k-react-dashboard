@@ -2,6 +2,7 @@ import React from 'react'
 import ReBarChart from '../components/recharts-components/ReBarChart';
 import ReDonutChart from '../components/recharts-components/ReDonutChart';
 import ReSimpleBarChart from '../components/recharts-components/ReSimpleBarChart';
+import ReSplineChart from '../components/recharts-components/ReSplineChart';
 import DefaultLayout from '../layouts/Default';
 
 
@@ -23,6 +24,11 @@ export default function Recharts() {
             <div className="box">
                 <h1 className="subtitle">{'Bar Chart'}</h1>
                 <ReSimpleBarChart />
+            </div>
+
+            <div className="box">
+                <h1 className="subtitle">{'Spline Chart'}</h1>
+                <ReSplineChart />
             </div>
 
         </DefaultLayout>

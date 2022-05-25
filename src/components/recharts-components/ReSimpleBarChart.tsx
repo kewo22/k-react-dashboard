@@ -4,6 +4,8 @@ import styles from '../../../styles/Home.module.css'
 
 export default function ReSimpleBarChart() {
 
+  let [posData, setPosData] = useState<any>({});
+
   const data = [
     {
       name: 'Supplier 1',
@@ -75,18 +77,20 @@ export default function ReSimpleBarChart() {
     );
   };
 
-  const CustomizedAxisTick = ({ props }: any) => {
-    // const { x, y, stroke, payload } = this.props;
-    console.log(props)
+  const CustomTooltip = (props: any) => {
+    const { active } = props;
+    const { name, summary } = posData;
+    if (active) {
+      return (
+        <div className={styles.customTooltip}>
+          <p>{name}</p>
+          <p>{summary}</p>
+        </div >
+      );
+    }
+    return null;
+  };
 
-    return (
-      // <g transform={`translate(${1},${1})`}>
-      <text x={0} y={0} dy={16} textAnchor="end" fill="#666" transform="rotate(-35)">
-        dwa
-      </text>
-      // </g>
-    );
-  }
 
   return (
     <BarChart
@@ -107,11 +111,19 @@ export default function ReSimpleBarChart() {
 
       <XAxis
         dataKey="name"
-        // type="number"
         tickLine={false}
         axisLine={false}
-        // tick={{ fontSize: 10 }}
-        tick={CustomizedAxisTick}
+        angle={-45}
+        textAnchor="end"
+        tick={{ fontSize: 10 }}
+        height={50}
+        interval={0}
+      />
+
+      <Tooltip
+        cursor={false}
+        position={{ x: posData.x + posData.width + 5, y: posData.y }}
+        content={<CustomTooltip />}
       />
 
       <Bar
@@ -119,10 +131,10 @@ export default function ReSimpleBarChart() {
         barSize={12}
         radius={14}
         background={false}
-      // onMouseOver={(data) => {
-      //   // console.log("data", data);
-      //   setPosData(data);
-      // }}
+        onMouseOver={(data) => {
+          // console.log("data", data);
+          setPosData(data);
+        }}
       >
         {
           data.map((entry, index) => (
