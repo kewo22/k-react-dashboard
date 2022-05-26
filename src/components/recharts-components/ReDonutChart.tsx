@@ -37,7 +37,7 @@ export default function ReDonutChart() {
 
   const CustomLegend = (props: any) => {
     const { active } = props;
-    console.log('props', props)
+    // console.log('props', props)
     return (
       <>
         {

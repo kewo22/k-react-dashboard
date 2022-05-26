@@ -108,7 +108,7 @@ export default function ReBarChart() {
 
       <Tooltip
         cursor={false}
-        position={{ x: posData.x + posData.width + 8, y: posData.y - (posData.height + 5) }}
+        position={{ x: posData.x + posData.width + 8, y: posData.y - 5 }}
         content={<CustomTooltip />}
       />
 

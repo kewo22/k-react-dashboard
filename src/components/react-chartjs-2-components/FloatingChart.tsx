@@ -12,6 +12,7 @@ import {
   ChartEvent,
   LegendElement,
   LegendItem,
+  ChartData,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
@@ -27,7 +28,6 @@ ChartJS.register(
 export default function FloatingChart() {
 
   const DATA_COUNT = 7;
-  const NUMBER_CFG = { count: DATA_COUNT, min: -100, max: 100 };
 
   // const labels = Utils.months({ count: 7 });
   const labels = [['Ceramic', 'Core', 'Making'], 'Batch Operation', 'Ceramic Core Flaring', 'Wax Pattern Moulding', 'Primary Slurry Dripping'];
@@ -56,7 +56,7 @@ export default function FloatingChart() {
   };
 
   // ChartOptions
-  const options: any = {
+  const options: ChartOptions<'bar'> = {
     responsive: true,
     maintainAspectRatio: false,
     indexAxis: 'y' as const,

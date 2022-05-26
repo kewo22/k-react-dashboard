@@ -27,7 +27,7 @@ export default function Recharts() {
             </div>
 
             <div className="box">
-                <h1 className="subtitle">{'Spline Chart'}</h1>
+                <h1 className="subtitle">{'Line Chart'}</h1>
                 <ReSplineChart />
             </div>
 

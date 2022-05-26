@@ -8,6 +8,7 @@ import ReChartJs2 from './chartjs2'
 import Recharts from './recharts'
 import Nivo from './nivo'
 import ReactVis from './reactvis'
+import Victory from './victory'
 // import "bulma/css/bulma.min.css";
 
 const Home: NextPage = () => {
@@ -30,7 +31,10 @@ const Home: NextPage = () => {
           <ReChartJs2 />
         </div>
         <div className="column">
-          <ReactVis />
+          <Victory />
+        </div>
+        <div className="column">
+          {/* <ReactVis /> */}
         </div>
       </div>
 
