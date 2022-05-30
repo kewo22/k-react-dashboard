@@ -34,7 +34,7 @@ const Home: NextPage = () => {
           <Victory />
         </div>
         <div className="column">
-          {/* <ReactVis /> */}
+          <ReactVis />
         </div>
       </div>
 

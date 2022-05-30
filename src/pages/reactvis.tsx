@@ -8,7 +8,11 @@ export default function ReactVis() {
 
         <DefaultLayout title='React-Vis'>
 
-            <ReactVisBar></ReactVisBar>
+            <div className="box">
+                <h1 className="subtitle">{'Range Chart'}</h1>
+                <ReactVisBar></ReactVisBar>
+            </div>
+
 
         </DefaultLayout>
     )
