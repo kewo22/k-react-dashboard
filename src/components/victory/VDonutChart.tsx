@@ -77,7 +77,6 @@ export default function VDonutChart() {
                     fill="#000000"
                     x="185"
                     y="200"
-                    fontFamily='monospace'
                     fontSize={24}
                     fontWeight="bold"
                 >
@@ -87,7 +86,6 @@ export default function VDonutChart() {
                     fill="#000000"
                     x="145"
                     y="218"
-                    fontFamily='monospace'
                     fontSize={16}
                 >
                     Total Comments
