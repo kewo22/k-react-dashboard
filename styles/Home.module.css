@@ -51,3 +51,24 @@
 .customLabelReSimpleBarChart {
 	color: red;
 }
+
+.victoryTooltip {
+	border: 1px solid #eee;
+	border-radius: 5px;
+	font-size: 14px;
+	padding: 5px;
+	box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.2);
+	background-color: #474852;
+	color: #ffffff;
+}
+
+.victoryTooltip:before {
+	content: "";
+	border-right: 6px solid #474852;
+	border-top: 6px solid transparent;
+	border-bottom: 6px solid transparent;
+	z-index: 999;
+	position: absolute;
+	left: -5px;
+	top: 3.4px;
+}

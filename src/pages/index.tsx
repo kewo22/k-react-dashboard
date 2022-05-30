@@ -25,10 +25,10 @@ const Home: NextPage = () => {
 
       <div className="columns">
         <div className="column">
-          <Recharts />
+          <ReChartJs2 />
         </div>
         <div className="column">
-          <ReChartJs2 />
+          <Recharts />
         </div>
         <div className="column">
           <Victory />
