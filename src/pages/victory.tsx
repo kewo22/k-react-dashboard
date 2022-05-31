@@ -17,7 +17,7 @@ export default function Victory() {
             </div>
 
             <div className="box">
-                <h1 className="subtitle">{'Donut Chart'}</h1>
+                <h1 className="subtitle">{'Doughnut Chart'}</h1>
                 <VDonutChart></VDonutChart>
             </div>
 

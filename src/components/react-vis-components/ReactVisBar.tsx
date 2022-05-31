@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, VerticalGridLines, LabelSeries, VerticalBarSeriesCanvas, VerticalBarSeries, HorizontalBarSeries } from 'react-vis';
+import { XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries, VerticalGridLines, LabelSeries, VerticalBarSeriesCanvas, VerticalBarSeries, HorizontalBarSeries, Borders, Crosshair, Hint } from 'react-vis';
 
 export default function ReactVisBar() {
 
@@ -33,29 +33,31 @@ export default function ReactVisBar() {
                 x: 310,
                 x0: 400,
                 y: 1,
-                color: 1
+                color: "red"
             },
             {
                 x: 210,
                 x0: 310,
                 y: 2,
-                color: 2
+                color: "green"
             },
             {
                 x: 180,
                 x0: 210,
                 y: 3,
-                color: 'red'
+                color: "#17B8BE"
             },
             {
                 x: 100,
                 x0: 180,
-                y: 4
+                y: 4,
+                color: "#89DAC1"
             },
             {
                 x: 1,
                 x0: 100,
-                y: 5
+                y: 5,
+                color: "#4DC19C"
             },
         ]
 
@@ -76,7 +78,7 @@ export default function ReactVisBar() {
             colorRange={colorRange}
             xDomain={[
                 0,
-                450
+                425
             ]}
             yDomain={[
                 1,
@@ -87,8 +89,21 @@ export default function ReactVisBar() {
             <HorizontalGridLines />
             <XAxis />
             <YAxis />
-            <HorizontalBarSeries data={data} barWidth={0.5} />
-            {/* <VerticalBarSeriesCanvas data={blueData} barWidth={10} /> */}
+            <HorizontalBarSeries
+                data={data}
+                barWidth={0.2}
+                colorType="literal"
+            />
+
+            {/* <Crosshair values={['value']} /> */}
+
+            {/* <Hint value={data}>
+                <div style={{ background: 'black' }}>
+                    <h3>Value of hint</h3>
+                    <p>{'myValue.x'}</p>
+                </div>
+            </Hint> */}
+
             {/* <LabelSeries data={labelData} /> */}
             {/* getLabel={(d: any) => d.x}  */}
         </XYPlot>
