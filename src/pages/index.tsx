@@ -4,11 +4,11 @@ import Image from 'next/image'
 import ReBarChart from '../components/recharts-components/ReBarChart'
 import DefaultLayout from '../layouts/Default'
 import styles from '../../styles/Home.module.css'
-import ReChartJs2 from './chartjs2'
-import Recharts from './recharts'
-import Nivo from './nivo'
-import ReactVis from './reactvis'
-import Victory from './victory'
+import ReChartJs2 from '../components/chartjs2'
+import Recharts from '../components/recharts-components/recharts'
+import Victory from '../components/victory'
+import ReactVis from '../components/reactvis'
+
 // import "bulma/css/bulma.min.css";
 
 const Home: NextPage = () => {

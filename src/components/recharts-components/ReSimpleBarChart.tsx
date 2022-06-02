@@ -1,12 +1,11 @@
-import React, { ReactNode, useState } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import { ComposedChart, BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area, Label, Pie, PieChart } from 'recharts';
 import styles from '../../../styles/Home.module.css'
+import { SimpleBarChart } from '../../types/rechart/SimpleBarChart.types';
 
-export default function ReSimpleBarChart() {
+export default function ReSimpleBarChart(props: SimpleBarChart) {
 
-  let [posData, setPosData] = useState<any>({});
-
-  const data = [
+  const defaultData: any[] = [
     {
       name: 'Supplier 1',
       value: 10,
@@ -59,23 +58,33 @@ export default function ReSimpleBarChart() {
     },
   ];
 
-  const CustomizedLabelB = ({ kapi, metric, viewBox }: any) => {
-    return (
-      <text
-        x={0}
-        y={0}
-        dx={-210}
-        dy={40}
-        fill={'stroke'}
-        fontSize={12}
-        transform="rotate(-90)"
-        textAnchor="start"
-      // fontFamily="inherit" // HAVE TO CHECK 
-      >
-        {'Number of assignments'}
-      </text>
-    );
-  };
+  let [chartData, setChartData] = useState<any[]>([]);
+  let [posData, setPosData] = useState<any>({});
+
+  useEffect(() => {
+    props.data ? setChartData([...props.data]) : setChartData([...defaultData])
+    // return () => {
+    //   second
+    // }
+  }, [props.data])
+
+  // const CustomizedLabelB = ({ kapi, metric, viewBox }: any) => {
+  //   return (
+  //     <text
+  //       x={0}
+  //       y={0}
+  //       dx={-210}
+  //       dy={40}
+  //       fill={'stroke'}
+  //       fontSize={12}
+  //       transform="rotate(-90)"
+  //       textAnchor="start"
+  //     // fontFamily="inherit" // HAVE TO CHECK 
+  //     >
+  //       {'Number of assignments'}
+  //     </text>
+  //   );
+  // };
 
   const CustomTooltip = (props: any) => {
     const { active } = props;
@@ -92,57 +101,83 @@ export default function ReSimpleBarChart() {
   };
 
 
+  const onclick = (e: any) => {
+    if (props.onBarClick) props.onBarClick(e);
+  }
+
   return (
-    <BarChart
-      width={500}
-      height={300}
-      data={data}
+
+    <ResponsiveContainer
+      width={props.width}
+      height={props.height}
     >
 
-      <YAxis
-        dataKey="value"
-        type="number"
-        tickLine={false}
-        axisLine={false}
-        tick={{ fontSize: 10 }}
-        ticks={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]} // or tickCount={7} // but HOW TO CALC ????
-        label={<CustomizedLabelB />}
-      />
-
-      <XAxis
-        dataKey="name"
-        tickLine={false}
-        axisLine={false}
-        angle={-45}
-        textAnchor="end"
-        tick={{ fontSize: 10 }}
-        height={50}
-        interval={0}
-      />
-
-      <Tooltip
-        cursor={false}
-        position={{ x: posData.x + posData.width + 5, y: posData.y }}
-        content={<CustomTooltip />}
-      />
-
-      <Bar
-        dataKey="value"
-        barSize={12}
-        radius={14}
-        background={false}
-        onMouseOver={(data) => {
-          // console.log("data", data);
-          setPosData(data);
-        }}
+      <BarChart
+        data={chartData}
+        barGap={0}
+        barCategoryGap={0}
       >
-        {
-          data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={entry.color} />
-          ))
-        }
-      </Bar>
 
-    </BarChart>
+        <YAxis
+          dataKey="value"
+          type="number"
+          tickLine={false}
+          axisLine={false}
+          tick={{ fontSize: 10 }}
+          ticks={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]} // or tickCount={7} // but HOW TO CALC ????
+        // tickCount={7}
+        // label={<CustomizedLabelB />}
+        >
+          <Label
+            angle={-90}
+            value={props.yAxisLabelText}
+            position='insideStart'
+            style={
+              { textAnchor: 'middle', fontSize: "12px" }
+            }
+          />
+        </YAxis>
+
+        <XAxis
+          dataKey="name"
+          tickLine={false}
+          axisLine={false}
+          angle={-45}
+          textAnchor="end"
+          tick={{ fontSize: 10 }}
+          height={50}
+          interval={0}
+        />
+
+        <Tooltip
+          cursor={false}
+          position={{ x: posData.x + posData.width + 5, y: posData.y }}
+          content={<CustomTooltip />}
+        />
+
+        <Bar
+          dataKey="value"
+          barSize={12}
+          radius={14}
+          background={false}
+          onMouseOver={(data) => {
+            // console.log("data", data);
+            setPosData(data);
+          }}
+          onClick={onclick}
+        >
+          {
+            chartData.map((entry: any, index: any) => (
+              <Cell key={`cell-${index}`} fill={entry.color} />
+            ))
+          }
+        </Bar>
+
+      </BarChart>
+
+    </ResponsiveContainer >
+
+
+
   )
 }

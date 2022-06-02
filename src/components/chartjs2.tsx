@@ -1,9 +1,9 @@
 import React from 'react'
 import DefaultLayout from '../layouts/Default';
-import FloatingChart from '../components/react-chartjs-2-components/FloatingChart';
-import DoughnutChart from '../components/react-chartjs-2-components/DoughnutChart';
-import BarChart from '../components/react-chartjs-2-components/BarChart';
-import LineChart from '../components/react-chartjs-2-components/LineChart';
+import FloatingChart from './react-chartjs-2-components/FloatingChart';
+import DoughnutChart from './react-chartjs-2-components/DoughnutChart';
+import BarChart from './react-chartjs-2-components/BarChart';
+import LineChart from './react-chartjs-2-components/LineChart';
 
 export default function ReChartJs2() {
 
