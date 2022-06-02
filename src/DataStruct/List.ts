@@ -36,7 +36,6 @@ export class List {
             this.tail = node;
             this.length++;
         }
-
     }
 
     findIndex(data: any): number {
