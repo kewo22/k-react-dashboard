@@ -1,10 +1,10 @@
-export class LNode {
+export class LNode<T> {
 
     data: any;
-    next: LNode | null = null
-    prev: LNode | null = null
+    next: LNode<T> | null = null
+    prev: LNode<T> | null = null
 
-    constructor(data: any) {
+    constructor(data: T) {
         this.data = data;
         this.next = this.next;
         this.prev = this.prev;

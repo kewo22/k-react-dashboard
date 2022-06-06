@@ -4,6 +4,7 @@ import ReDonutChart from './ReDonutChart';
 import ReSimpleBarChart from './ReSimpleBarChart';
 import ReSplineChart from './ReSplineChart';
 import DefaultLayout from '../../layouts/Default';
+import { ReChartsBarChartData } from '../../data/rechars-bar-chart-data';
 
 
 export default function Recharts() {
@@ -24,8 +25,12 @@ export default function Recharts() {
             <div className="box">
                 <h1 className="subtitle">{'Bar Chart'}</h1>
                 <ReSimpleBarChart
-                    width={600}
+                    data={ReChartsBarChartData}
+                    width={500}
                     height={300}
+                    yAxisLabelText={'No Of Assignments'}
+                    yAxisDataKey='value'
+                    xAxisDataKey='name'
                 />
             </div>
 

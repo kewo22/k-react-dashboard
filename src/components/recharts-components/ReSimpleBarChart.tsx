@@ -88,12 +88,12 @@ export default function ReSimpleBarChart(props: SimpleBarChart) {
 
   const CustomTooltip = (props: any) => {
     const { active } = props;
-    const { name, summary } = posData;
+    const { name, value } = posData;
     if (active) {
       return (
         <div className={styles.customTooltip}>
           <p>{name}</p>
-          <p>{summary}</p>
+          <p>{value}</p>
         </div >
       );
     }
@@ -119,13 +119,13 @@ export default function ReSimpleBarChart(props: SimpleBarChart) {
       >
 
         <YAxis
-          dataKey="value"
+          dataKey={props.yAxisDataKey}
           type="number"
           tickLine={false}
           axisLine={false}
           tick={{ fontSize: 10 }}
-          ticks={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]} // or tickCount={7} // but HOW TO CALC ????
-        // tickCount={7}
+          // ticks={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]} // or tickCount={7} // but HOW TO CALC ????
+          tickCount={5}
         // label={<CustomizedLabelB />}
         >
           <Label
@@ -133,13 +133,16 @@ export default function ReSimpleBarChart(props: SimpleBarChart) {
             value={props.yAxisLabelText}
             position='insideStart'
             style={
-              { textAnchor: 'middle', fontSize: "12px" }
+              {
+                textAnchor: 'middle', fontSize: "12px",
+                // fontFamily: "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans- serif"
+              }
             }
           />
         </YAxis>
 
         <XAxis
-          dataKey="name"
+          dataKey={props.xAxisDataKey}
           tickLine={false}
           axisLine={false}
           angle={-45}
@@ -156,7 +159,7 @@ export default function ReSimpleBarChart(props: SimpleBarChart) {
         />
 
         <Bar
-          dataKey="value"
+          dataKey={props.yAxisDataKey || ''} // remove this - || ''
           barSize={12}
           radius={14}
           background={false}
